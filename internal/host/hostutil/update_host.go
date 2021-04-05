@@ -51,7 +51,7 @@ func UpdateLogsProgress(_ context.Context, log logrus.FieldLogger, db *gorm.DB, 
 	return host, nil
 }
 
-func UpdateHostStatus(ctx context.Context, log logrus.FieldLogger, db *gorm.DB, eventsHandler events.Handler, clusterId strfmt.UUID, hostId strfmt.UUID,
+func UpdateHostStatus(ctx context.Context, log logrus.FieldLogger, db *gorm.DB, eventsHandler events.Sender, clusterId strfmt.UUID, hostId strfmt.UUID,
 	srcStatus string, newStatus string, statusInfo string, extra ...interface{}) (*common.Host, error) {
 	var host *common.Host
 	var err error

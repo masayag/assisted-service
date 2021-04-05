@@ -1,0 +1,31 @@
+x-events:
+  - name: cancel_install_failed_start
+    message: "Failed to cancel installation: error starting DB transaction"
+    event_type: cluster
+    severity: "error"
+    properties:
+        cluster_id:  UUID
+
+  - name: cancel_install_failed_commit
+    message: "Failed to cancel installation: error committing DB transaction"
+    event_type: cluster
+    severity: "error"
+    properties:
+        cluster_id:  UUID
+
+  - name: iso_gen_failed_format_ign
+    message: "Failed to generate image: error formatting ignition file"
+    event_type: cluster
+    severity: "error"
+    properties:
+        cluster_id:  UUID
+
+  - name: iso_gen_failed
+    message: "Failed to generate minimal ISO"
+    log_message: "Failed to generate minimal ISO for cluster {cluster_id}"
+    event_type: cluster
+    severity: "error"
+    properties:
+        cluster_id:  UUID
+
+

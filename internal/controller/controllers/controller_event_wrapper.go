@@ -53,3 +53,11 @@ func (c *controllerEventsWrapper) AddMetricsEvent(ctx context.Context, clusterID
 func (c *controllerEventsWrapper) GetEvents(clusterID strfmt.UUID, hostID *strfmt.UUID, categories ...string) ([]*common.Event, error) {
 	return c.events.GetEvents(clusterID, hostID, categories...)
 }
+
+func (c *controllerEventsWrapper) SendClusterEvent(ctx context.Context, event events.ClusterEvent, eventTime time.Time) {
+	c.events.SendClusterEvent(ctx, event, eventTime)
+}
+
+func (c *controllerEventsWrapper) SendHostEvent(ctx context.Context, event events.HostEvent, eventTime time.Time) {
+	c.events.SendHostEvent(ctx, event, eventTime)
+}
